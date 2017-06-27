@@ -1,0 +1,86 @@
+\chapter{Introducción}
+
+\drop{M}adrija Consultoría, S.L. es una empresa dedicada al desarrollo software, dentro de la empresa destacan dos proyectos, los cuales definen la temática de los desarollos que se realizan en \ac{Madrija}, una línea dedicada al desarrollo de software sanitario, dicho software es desarrollado para su venta a hospitales y otra línea enfocada al desarrollo de software para la administración de procesos selectivos de las empresas.
+
+\ac{Madrija} ha desarrollado su propia metodología de gestión del ciclo de vida del desarrollo que está en fase de consolidación. Dicha metodología se basa en principios de \textit{frameworks} metodológicos ágiles y las normas \ac{ISO}, en concreto, utiliza la \ac{ISO} 12207\cite{ISO_12207}.
+
+Como se ha dicho antes, \ac{Madrija} basa sus líneas de desarrollo en sus dos proyectos centrales, los cuales poseen una arquitectura y un desarrollo muy complejo, ya que dichos proyectos son multimodulares, con ello se justifica que el producto que se va a vender pueda ser dirigido a tantos clientes como se desee, puesto que la modularidad de sus proyectos permite que se adapte a los diferentes clientes, es decir, permite añadir funciones independientes entre los diferentes módulos de cada cliente sin que una función o un módulo completo dependa de otro.
+
+Dentro del desarrollo de todos sus proyectos destacan dos grandes paquetes centrales:
+\begin{itemize}
+	\item El paquete \textit{Core}.
+	\item El paquete \textit{Demo}.
+\end{itemize}
+
+El paquete \textit{Core}, es aquel que contiene la lógica de negocio de cada proyecto, el mapeo de sus datos o las inyecciones de dependencias. Los paquetes \textit{Core} de cada proyecto siguen el principio de dotar a sus proyectos de tener una alta cohesión, pero un bajo acoplamiento con el resto de paquetes \textit{Core}, permitiendo así la posibilidad de que, por ejemplo, el cliente 1 pueda comprar los productos 1, 2 y 3, mientras que un cliente 2 sea capaz de comprar los prouctos, 3, 4, 5 y 6 sin que tengan dependencias unos de otros.
+
+\newpage
+
+El paquete \textit{Demo}, es un proyecto que contiene el código mínimo que configura y hace uso del paquete \textit{Core} respectivo, pero su funcionalidad dentro de los proyectos es ser utilizado para ejecutar las pruebas sobre él. Estas pruebas y sus tests correspondientes son orquestados y ejecutados por Maven\cite{Maven}. A los diferentes proyectos de \ac{Madrija} se les realizan diferentes tests:
+\begin{itemize}
+	\item Tests unitarios.
+	\item Tests de comandos.
+	\item Tests de interfaz de usuario.
+\end{itemize}
+
+Los tests unitarios están dedicados a comprobar el correcto funcionamiento de las unidades básicas del código fuente.
+
+Los tests de comandos están desarrollados con la finaldidad de comprobar el correcto funcionamiento de los comandos desarrollados en cada proyecto. Tal y como se han desarrollado durante el transcurso de este proyecto, los tests de comando, son un tipo específico de test de integración.
+
+Tests de intefaz de usuario, estos tests son utilizados para comprobar el correcto funcionamiento de las distintas interfaces de usuario que han sido desarrolladas dentro de cada proyecto, en estos tests se realizan pruebas tales como agregar parámetros a campos específicos o hacer \textit{click} en determinados botones y comprobar que realizan la navegación entre las diferentes interfaces de manera correcta. Tal y como se han desarrollado los tests de interfaz de usuario durante este proyecto, los tests de interfaz de usuario, son un tipo de test específico de los tests de aceptación.
+
+Al tener tantos clientes, \ac{Madrija} debe realizar pruebas específicas para cada uno de ellos, dado que cada producto de cada cliente tiene partes específicas demandadas por ese cliente que no tienen los demás, además, cada producto también posee un desarrollo específico para adaptarse a las diferentes instalaciones que tiene cada cliente.
+
+Por ello, se hace necesario preparar un entorno de pruebas específico para cada cliente. \ac{Madrija} cuenta con tecnología específica que le permite realizar dichas adaptaciones:
+\begin{itemize}
+	\item \textit{Liquibase}.
+	\item ``Renombrator''.
+	\item \textit{Vagrant}.
+\end{itemize}
+
+Mediante el uso de la herramienta \textit{Liquibase}, \ac{Madrija} consigue que cada cliente tenga almacenados los distintos cambios que se realizan en su base de datos en un fichero XML, estos ficheros también son conocidos como ``ChangeSet''.
+
+\clearpage
+
+``Renombrator'' es un software desarrollado por \ac{Madrija} que toma un proyecto y revisa todos sus ficheros, con el objetivo de corregir aquellos errores de nombrado para evitar conflictos con los diferentes tipos de bases de datos.
+
+Mediante el uso de la herramienta \textit{Vagrant}, \ac{Madrija} puede crear y configurar entornos virtualizados para la ejecución de los tests y las pruebas anteriormente nombradas, es decir, \textit{Vagrant} permite crear un entorno virtual mediante un comando, realizar las pruebas necesarias en ese entorno y mediante otro comando es capaz de destruir el entorno virtualizado para permitir volver al equipo al estado anterior.
+
+Dada la importancia del software que desarrolla \ac{Madrija}, su principal línea de desarrollo es el software dedicado a sanidad, en concreto a cardiología. \ac{Madrija} debe asegurar de que las funciones básicas en todos sus clientes, independientemente de la versión del producto que tenga cada cliente, funcionen correctamente y no surjan errores.
+
+En lo referente a la gestión de pruebas y automatización de testing de proyecto, \ac{Madrija} utiliza Maven para orquestar sus pruebas como se ha dicho antes, lo que permite un grado de automatización a nivel de proyecto, pero presenta el inconveniente de que su ejecución debe ser manual, lo cual supone pérdidas de tiempo en tareas repetitivas que se pueden automatizar y la posibilidad de que, mediante el factor humano, se cometan errores a la hora de ejecutar las pruebas, pudiendo no realizar siempre las mismas pruebas a un desarrollo o existiendo la posibilidad de que no se realicen pruebas.
+
+Para mejorar los procesos de \ac{Madrija}, se propone la implantación de un  entorno de integración continua\cite{IC}. Estos entornos, derivados de la práctica de eXtreme Programming\cite{XP}, de aquí en adelante \ac{XP}, permiten reducir el tiempo que los desarrolladores invierten en la detección de errores, facilitan la identificación de errores de regresión y permiten automatizar la ejecución de las pruebas.
+
+\begin{figure}[!h]
+\centering
+   \includegraphics[width=5cm]{Logo_Madrija.png}
+\caption{Logo de Madrija Consultoría, S.L.}
+\end{figure}
+
+\clearpage
+
+\ac{Madrija} es consciente de estos beneficios y por esa razón, surge la motivación de realizar este trabajo de fin de grado, dentro del programa FORTE, el cual pretende mejorar y aumentar la automatización de la ejecución de sus tests, aumentando el alcance de las pruebas a nivel de integración entre proyectos.
+
+\section{Estructura del documento}
+
+El presente documento está compuesto por 6 capítulos y 3 anexos. A continuación se describe el contenido de cada uno de ellos.
+
+\begin{itemize}
+\item \textbf{Introducción:} Primer capítulo, se encarga de dar una visión general al lector exponiendo el tema sobre el que versa este trabajo, tanto el problema encontrado, como la solución que se propone, también se incluye la estructura del documento.
+\item \textbf{Objetivos:} Segundo capítulo, en este capítulo se presenta el objetivo principal que se desea alcanzar así como los subobjetivos.
+\item \textbf{Estado de la cuestión:} Tercer capítulo, en este capítulo se realiza una revisión completa sobre el tema a tratar, concretamente, se toma información relativa a los inicios y la evolución de la integración continua.
+\item \textbf{Método de trabajo:} Cuarto capítulo, en este capítulo se explica la metodología aplicada para gestionar el proyecto, así como las iteraciones en las que se ha dividido.
+\item \textbf{Resultados:} Quinto capítulo, en este capítulo se exponen los resultados obtenidos durante el desarrollo del proyecto.
+\item \textbf{Conclusiones:} Sexto y último capítulo, se exponen las conclusiones obtenidas tras finalizar el trabajo y el desarrollo, en dicho capítulo se incluyen también propuestas de trabajos futuros, además de una opinión personal.
+\end{itemize}
+
+Tras estos capítulos se incluye las referencias que han sido consultadas y citadas durante el desarrollo de este documento.
+
+En la parte final del presente documento se presentan los 3 anexos nombrados antes, se incluyen para ampliar y aclarar informarción sobre el proyecto tratado y que así el lector tenga una mejor comprensión de los temas tratados.
+
+\begin{itemize}
+\item \textbf{Anexo A:} Descripción de competencias.
+\item \textbf{Anexo B:} Manual de usuario.
+\item \textbf{Anexo C:} Contrato de propiedad intelectual.
+\end{itemize}

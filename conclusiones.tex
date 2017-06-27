@@ -1,0 +1,70 @@
+\chapter{Conclusiones}
+
+\drop{E}n este último capítulo se determina si se han conseguido los objetivos parciales detallados en el segundo capítulo de este documento, incluyendo el objetivo principal también.
+
+Para concluir, se presentan algunas propuestas de trabajo futuro realacionadas con la temática sobre la que versa este trabajo, se incluye al final una pequeña opinión personal del autor.
+
+\section{Análisis de los objetivos del proyecto}
+El objetivo principal de este trabajo era analizar, diseñar e implementar un entorno de integración continua, que se adapte a la metodología, formas y prácticas de desarrollo que tiene \ac{Madrija}. El objetivo ha sido cumplido mediante la implantación de un sistema de integración continua dentro de la empresa así como su instalación y configuración dentro de la arquitectura que fue diseñada para dicho propósito, obteniendo así la implantación del sistema de integración continua y su arquitectura en el servidor de la empresa.
+
+Por lo tanto, el objetivo principal de este trabajo ha sido conseguido y a su vez los objetivos parciales, todo ello documentado a lo largo de este documento.
+
+\begin{center}
+\begin{longtable}{p{.80\textwidth} p{.20\textwidth}}
+\hline \hline
+  \rowcolor{gray!25}\textbf{Objetivo} & \textbf{¿Conseguida?} \\
+    \hline \hline
+    Analizar, diseñar e implementar un entorno de integración continua, que se adapte a la metodología, formas y prácticas de desarrollo que tiene \ac{Madrija} & \begin{center} \includegraphics[width=1cm]{tick.png} \end{center}\\
+    \hline \hline
+    \caption{Objetivo principal}
+\end{longtable}
+\end{center} 
+
+\newpage
+
+\begin{center}
+\rowcolors{1}{gray!25}{white}
+\begin{longtable}{p{.40\textwidth} p{.60\textwidth}}
+\hline \hline
+  \textbf{Objetivo} & \textbf{Justificación} \\
+    \hline \hline
+    Analizar y determinar herramientas de integración continua. & Se justifica haber superado este objetivo parcial en la iteración 1, debido a la prueba de concepto inicial realizada con Jenkins y superada con éxito, se elige a Jenkins como la herramienta que será utilizada para desarrollar el sistema de integración continua.\\
+    \hline\hline
+    Desarrollar la infraestructura para el sistema de integración continua. & Se justifica haber superado este objetivo parcial en la iteración 2, dada la aprobación por parte de \ac{Madrija} del prototipo de infraestructura presentado a la empresa para el desarrollo del sistema de integración continua.\\
+    \hline \hline
+    Adaptarse a la metodología de desarrollo. & Se justifica haber superado este objetivo parcial en las iteraciones 1 y 3, debido a la prueba de concepto que demostró la capacidad de adaptación de Jenkins y en la iteración 3, debido a la propuesta de cambios para mejorar su metodología de gestión del ciclo de vida de sus desarrollos.\\
+    \hline \hline
+    Alcanzar el máximo grado de automatización posible de los tests. & Se justifica haber superado este objetivo en las iteraciones 1 y 4, dado que en la primera iteración como se describe en el documento se consiguen automatizar tests con Maven e incorporarlos en Jenkins, y en la iteración 4, se incorpora a Jenkins ``Renombrator'', tests que realizaba la empresa de manera manual y que ahora se realizan de manera automática por parte de Jenkins cuando detecta algún cambio en el código.\\
+    \hline \hline
+    Proponer mejoras. & Se justifica haber superado este objetivo parcial dado que en la iteración 3, se proponen mejoras y cambios en la metodología propia de la empresa para gestionar el ciclo de vida de sus desarrollos.\\
+    \hline \hline
+      \rowcolor{white}\caption{Análisis de los objetivos parciales}
+\end{longtable}
+\end{center}
+
+\newpage
+
+\section{Trabajo futuro}
+
+Tras finalizar este trabajo surgen nuevas cuestiones para un trabajo futuro entre las que destacan:
+
+\begin{itemize}
+\item \textbf{Solucionar el problema del plugin de GitLab:} Para poder realizar otra estrategia para realizar las ejecuciones del sistema de integración continua.
+\item \textbf{Implantación de SonarQube:} Para controlar y medir la calidad del código.
+\item \textbf{Mejorar la seguridad:} El sistema de integración está únicamente protegido por medio de \textit{``usuario y contraseña''} por lo que se podría aportar algún tipo de seguridad extra.
+\end{itemize}
+
+\section{Opinión personal}
+
+La realización de este trabajo me ha servido para adquirir nuevos conocimientos tanto teóricos sobre integración continua y calidad del código fuente desarrollado, como aspectos tecnológicos (configuración de máquinas virtuales, sistemas UNIX, Jenkins, gestión y construcción de proyectos, etcétera).
+
+Durante estos meses he adquirido conocimientos relacionados con integración continua y he reforzado otros conceptos de aspectos tecnológicos.
+
+Concluido este trabajo fin de grado, debo decir que no es un punto y final. El desarrollo de este trabajo y el paso de las dificultades, me han sido útiles para saber qué únicamente conozco una pequeña parte de este gran mundo, la informática, y, por ello, seguiré en formación y buscando nuevos retos que me apasionen tanto o más como la realización de este trabajo.
+
+Por lo tanto, como resultado global de este trabajo me encuentro muy satisfecho y con ganas de seguir mejorando, evolucionando e innovando en este mundo.\\ \\ \\ \\ \\ \\
+
+\begin{flushright}
+Ciudad Real, a \today\\
+Fdo. \textit{Julio Alberto Fernández Guerrero}
+\end{flushright}
